@@ -19,9 +19,9 @@ npm run build
 npm start
 ```
 
-Las dependencias usan rangos de versiones estables compatibles (Next.js 16, React 19, Tailwind 4 y TypeScript 5). La primera instalación genera `package-lock.json`: revisarlo y subirlo a Git para fijar las versiones resueltas. En adelante, usar `npm ci`. No mezclar gestores de paquetes.
+Las dependencias usan rangos de versiones estables compatibles (Next.js 16, React 19, Tailwind 4 y TypeScript 5). Se incluye `package-lock.json` para fijar las versiones verificadas. En adelante, usar `npm ci`. No mezclar gestores de paquetes.
 
-**Estado de verificación de esta entrega:** el entorno de creación bloquea la conexión al registro de paquetes. No fue posible instalar dependencias, ejecutar TypeScript ni completar `next build`. La política del navegador también impidió abrir la vista previa local; la revisión visual de escritorio y móvil sigue pendiente. Se comprobó la sintaxis ejecutable de los datos y del generador de vista previa y se generaron las nueve páginas sin errores. No se incluye un lockfile inventado. La vista previa sin dependencias sirve para revisar composición y navegación; no sustituye las comprobaciones anteriores. Completar estos comandos con acceso a internet antes de publicar.
+**Estado de esta revisión:** CREFET incorpora 25 renders suministrados y 13 láminas de tesis. La compilación Next.js y la comprobación TypeScript pasaron. Se revisan escritorio, móvil y lightbox antes de entregar la vista previa. Los cambios se mantienen en `review/crefet` y no se suben a producción antes de la aprobación de la autora. Ver `docs/CREFET.md`.
 
 ## 2. Organización
 
@@ -38,7 +38,7 @@ tools/                    Vista previa local sin dependencias
 
 ## 3. Cambiar textos e imágenes
 
-Editar `src/data/projects.ts`. Cada proyecto tiene nombre, descripción, año opcional, tipología, portada, secciones y recorrido virtual opcional. Los textos generales están en las páginas correspondientes; los datos personales, en `src/data/profile.ts`.
+Editar `src/data/projects.ts`; el contenido de CREFET está separado en `src/data/crefet.ts`. Cada proyecto tiene nombre, descripción, año opcional, tipología, portada, secciones y recorrido virtual opcional. Los textos generales están en las páginas correspondientes; los datos personales, en `src/data/profile.ts`.
 
 Copiar las imágenes originales a `public/images/CREFET`, `Hospital`, `Lumna` o `Noble-Crest`. Reemplazar un marcador en los datos:
 
