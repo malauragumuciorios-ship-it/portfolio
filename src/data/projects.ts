@@ -1,3 +1,4 @@
+import { crefet } from './crefet.ts';
 export type ProjectImage = {
   src?: string;
   alt: string;
@@ -6,12 +7,12 @@ export type ProjectImage = {
   height: number;
   fit?: 'cover' | 'contain';
 };
-export type ProjectSection = { title: string; text?: string; images: ProjectImage[] };
+export type ProjectSection = { title: string; text?: string; kind?: 'drawings' | 'photography'; images: ProjectImage[] };
 export type Project = {
   slug: string; number: string; name: string; subtitle: string;
   year?: string; type: string; location?: string; studio: string;
   description: string; concept?: string; cover: ProjectImage;
-  sections: ProjectSection[]; virtualTour?: string;
+  sections: ProjectSection[]; virtualTour?: string; featured?: boolean; editorialTitle?: string;
 };
 const pending = (caption: string, width = 1600, height = 1000): ProjectImage => ({
   caption, alt: `${caption}: imagen original pendiente de incorporar`, width, height,
@@ -24,14 +25,7 @@ const technicalSections = (): ProjectSection[] => [
   { title: 'Experiencia espacial', images: [pending('Render exterior'), pending('Render interior')] },
 ];
 export const projects: Project[] = [
-  {
-    slug: 'crefet', number: '01', name: 'CREFET',
-    subtitle: 'Centro de Rehabilitación Física y Entrenamiento Terapéutico',
-    year: '2026', type: 'Salud y bienestar', studio: 'Proyecto de grado',
-    location: 'Santa Cruz de la Sierra, Bolivia',
-    description: 'Equipamiento arquitectónico que integra rehabilitación física, evaluación clínica y entrenamiento terapéutico mediante una organización espacial continua y circulaciones diferenciadas.',
-    cover: pending('Vista principal · CREFET', 2000, 1100), sections: technicalSections(),
-  },
+  crefet,
   {
     slug: 'hospital', number: '02', name: 'HOSPITAL', subtitle: 'Arquitectura hospitalaria',
     type: 'Salud', studio: 'Taller VIII · Proyecto académico',
